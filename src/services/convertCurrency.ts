@@ -2,14 +2,15 @@ import { redisClient } from "../app";
 
 export const DEFAULT_EXPIRATION = 10368;
 
-const header = new Headers();
+// const header = new Headers();
 // @ts-ignore
-header.append("apikey", process.env.API_KEY);
+// header.append("apikey", process.env.API_KEY);
 
 export const requestOptions: RequestInit = {
   method: "GET",
   redirect: "follow",
-  headers: header,
+  // @ts-ignore
+  headers: {apikey: process.env.API_KEY},
 };
 
 export default async function convertCurrency(
